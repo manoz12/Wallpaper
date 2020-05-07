@@ -4,35 +4,35 @@ List<CategoriesModel> getCategories() {
   List<CategoriesModel> categories = new List();
   CategoriesModel categoriesModel = new CategoriesModel();
   categoriesModel.categoriesImageUrl =
-      "https://images.pexels.com/photos/545008/pexels-photo-545008.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500";
+      "https://images.pexels.com/photos/2605200/pexels-photo-2605200.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
   categoriesModel.categoriesName = "Street Art";
   categories.add(categoriesModel);
   categoriesModel = new CategoriesModel();
 
   //
   categoriesModel.categoriesImageUrl =
-      "https://images.pexels.com/photos/704320/pexels-photo-704320.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500";
+      "https://images.pexels.com/photos/459124/pexels-photo-459124.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
   categoriesModel.categoriesName = "Wild Life";
   categories.add(categoriesModel);
   categoriesModel = new CategoriesModel();
 
   //
   categoriesModel.categoriesImageUrl =
-      "https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500";
+      "https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
   categoriesModel.categoriesName = "Nature";
   categories.add(categoriesModel);
   categoriesModel = new CategoriesModel();
 
   //
   categoriesModel.categoriesImageUrl =
-      "https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500";
+      "https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
   categoriesModel.categoriesName = "City";
   categories.add(categoriesModel);
   categoriesModel = new CategoriesModel();
 
   //
   categoriesModel.categoriesImageUrl =
-      "https://images.pexels.com/photos/1434819/pexels-photo-1434819.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260";
+      "https://images.pexels.com/photos/2228585/pexels-photo-2228585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
   categoriesModel.categoriesName = "Motivation";
 
   categories.add(categoriesModel);
@@ -40,14 +40,14 @@ List<CategoriesModel> getCategories() {
 
   //
   categoriesModel.categoriesImageUrl =
-      "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500";
+      "https://images.pexels.com/photos/104842/bmw-vehicle-ride-bike-104842.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
   categoriesModel.categoriesName = "Bikes";
   categories.add(categoriesModel);
   categoriesModel = new CategoriesModel();
 
   //
   categoriesModel.categoriesImageUrl =
-      "https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500";
+      "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
   categoriesModel.categoriesName = "Cars";
   categories.add(categoriesModel);
   categoriesModel = new CategoriesModel();

@@ -1,12 +1,61 @@
+//class PhotoModel {
+//  String photographer;
+//  String photographer_url;
+//  int photographer_id;
+//  SrcModel src;
+//  PhotoModel(
+//      {this.src,
+//      this.photographer,
+//      this.photographer_id,
+//      this.photographer_url});
+//
+//  factory PhotoModel.fromMap(Map<String, dynamic> jsonData) {
+//    return PhotoModel(
+//        src: SrcModel.fromMap(jsonData["src"]),
+//        photographer_url: jsonData["photographer_url"],
+//        photographer_id: jsonData["photographer_id"],
+//        photographer: jsonData["photographer"]);
+//  }
+//}
+//
+//class SrcModel {
+//  String original;
+//  String small;
+//  String portrait;
+//  String large2x;
+//  String large;
+//  String medium;
+//
+//  SrcModel(
+//      {this.portrait,
+//      this.medium,
+//      this.large,
+//      this.large2x,
+//      this.original,
+//      this.small});
+//
+//  factory SrcModel.fromMap(Map<String, dynamic> jsonData) {
+//    return SrcModel(
+//        portrait: jsonData["portrait"],
+//        medium: jsonData["medium"],
+//        large2x: jsonData["large2x"],
+//        original: jsonData["original"],
+//        small: jsonData["small"],
+//        large: jsonData["large"]);
+//  }
+//}
 class PhotoModel {
+  int totalResults;
   int page;
   int perPage;
   List<Photos> photos;
   String nextPage;
 
-  PhotoModel({this.page, this.perPage, this.photos, this.nextPage});
+  PhotoModel(
+      {this.totalResults, this.page, this.perPage, this.photos, this.nextPage});
 
   PhotoModel.fromJson(Map<String, dynamic> json) {
+    totalResults = json['total_results'];
     page = json['page'];
     perPage = json['per_page'];
     if (json['photos'] != null) {
@@ -20,6 +69,7 @@ class PhotoModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['total_results'] = this.totalResults;
     data['page'] = this.page;
     data['per_page'] = this.perPage;
     if (this.photos != null) {

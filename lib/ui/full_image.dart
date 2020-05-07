@@ -7,25 +7,55 @@ class FullImage extends StatefulWidget {
 }
 
 class _FullImageState extends State<FullImage> {
-  PageController _pageController =
-      new PageController(initialPage: Global.Index);
-
+  PageController pageController = PageController(initialPage: Global.index);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
-          controller: _pageController,
-          itemCount: Global.photos.length,
-          itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        Global.photos[index].src.large2x,
+        controller: pageController,
+        itemCount: Global.photos.length,
+        itemBuilder: (context, index) {
+          return Hero(
+            tag: '$index',
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: NetworkImage(
+                          Global.photos[index].src.large2x,
+                        ),
+                        fit: BoxFit.cover),
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 90.0),
+                      width: MediaQuery.of(context).size.width / 2,
+                      height: 50,
+                      color: Colors.blueGrey.shade800.withOpacity(0.6),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Set Wallpaper",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
                       ),
-                      fit: BoxFit.cover)),
-            );
-          }),
+                    ),
+                    SizedBox(
+                      height: 4,
+                    ),
+                  ],
+                )
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
