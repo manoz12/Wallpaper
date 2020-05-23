@@ -94,7 +94,9 @@ class _SearchBarToolState extends State<SearchBarTool> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => FullImage()));
+                                builder: (context) => FullImage(
+                                      imgPath: photoModel.src.portrait,
+                                    )));
                       },
                       child: Hero(
                         tag: photoModel.src.portrait,

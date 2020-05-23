@@ -1,9 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:wallpaperapp/util/constant.dart';
-import 'package:wallpaperapp/util/global.dart';
 
 class SearchPage extends StatefulWidget {
   final String searchQuery;

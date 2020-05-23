@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:wallpaperapp/model/photo_model.dart';
 import 'package:wallpaperapp/ui/full_image.dart';
 import 'package:wallpaperapp/ui/search_bar.dart';
+import 'package:wallpaperapp/ui/widget.dart';
 import 'package:wallpaperapp/util/constant.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallpaperapp/util/global.dart';
@@ -16,6 +17,8 @@ class TrendingPage extends StatefulWidget {
 }
 
 class _TrendingPageState extends State<TrendingPage> {
+  bool isLoading = true;
+  TextEditingController searchController = new TextEditingController();
   getWallpaper() async {
     await http.get(apiurl, headers: {apiKey: apiValue}).then((res) {
       // print(res.body);
@@ -25,7 +28,9 @@ class _TrendingPageState extends State<TrendingPage> {
           .toList();
     });
     if (this.mounted) {
-      setState(() {});
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 
@@ -58,13 +63,17 @@ class _TrendingPageState extends State<TrendingPage> {
                   color: Colors.black,
                 ),
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SearchBarTool()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchBarTool(
+                                search: searchController,
+                              )));
                 }),
           )
         ],
       ),
-      body: _buildGridView(),
+      body: isLoading ? Center(child: Loading(50.0)) : _buildGridView(),
     );
   }
 }
@@ -82,7 +91,11 @@ _buildGridView() {
         onTap: () {
           Global.index = index;
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => FullImage()));
+              context,
+              MaterialPageRoute(
+                  builder: (context) => FullImage(
+                        imgPath: Global.photos[index].src.portrait,
+                      )));
         },
         child: Hero(
           tag: '$index',

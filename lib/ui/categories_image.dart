@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:wallpaperapp/model/photo_model.dart';
+import 'package:wallpaperapp/ui/widget.dart';
 import 'package:wallpaperapp/util/constant.dart';
 import 'package:wallpaperapp/util/global.dart';
 
@@ -19,6 +20,7 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
+  bool isLoading = true;
   getCategoryWallpaper() async {
     await http.get(
         "https://api.pexels.com/v1/search?query=${widget.categories}&per_page=30&page=1",
@@ -30,7 +32,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
           .toList();
     });
     if (this.mounted) {
-      setState(() {});
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 
@@ -69,7 +73,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
 //          )
 //        ],
       ),
-      body: _buildGridView(),
+      body: isLoading ? Center(child: Loading(50.0)) : _buildGridView(),
     );
   }
 }
@@ -87,7 +91,11 @@ _buildGridView() {
         onTap: () {
           Global.index = index;
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => FullImage()));
+              context,
+              MaterialPageRoute(
+                  builder: (context) => FullImage(
+                        imgPath: Global.photos[index].src.portrait,
+                      )));
         },
         child: Hero(
           tag: '$index',

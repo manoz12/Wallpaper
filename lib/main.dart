@@ -7,6 +7,7 @@ void main() => runApp(MaterialApp(
       theme: ThemeData(
           primaryColor: Colors.black,
           fontFamily: 'Kalam',
-          primaryTextTheme: TextTheme(title: TextStyle(color: Colors.black)),
+          primaryTextTheme:
+              TextTheme(subtitle1: TextStyle(color: Colors.black)),
           iconTheme: IconThemeData(color: Colors.black)),
     ));
